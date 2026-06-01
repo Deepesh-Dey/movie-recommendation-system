@@ -1,0 +1,90 @@
+# Virtual Environment
+venv/
+ENV/
+env/
+.venv
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# Data files
+data/raw/*.csv
+data/processed/*.csv
+data/raw/*.zip
+data/raw/*.tar.gz
+
+# Cache files
+.cache/
+*.cache
+*.pkl
+*.pickle
+
+# Streamlit cache
+.streamlit/
+
+# Jupyter Notebook
+.ipynb_checkpoints/
+*.ipynb_checkpoints
+
+# Logs
+*.log
+logs/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Model files
+models/*.pkl
+models/*.joblib
+*.h5
+*.model
+
+# Testing
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Node modules (if using frontend)
+node_modules/
+package-lock.json
+
+# IDE settings
+*.code-workspace
+
+# Temporary files
+tmp/
+temp/
+*.tmp
