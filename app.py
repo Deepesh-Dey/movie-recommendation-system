@@ -36,51 +36,75 @@ def inject_styles() -> None:
         .stApp {
             background: linear-gradient(180deg, #0c0c0d 0%, #141416 50%, #0f0f10 100%);
             color: #f5f5f5;
+            font-size: 18px;
         }
         .block-container {
-            padding-top: 1.5rem;
-            padding-bottom: 2rem;
+            padding-top: 2rem;
+            padding-bottom: 2.5rem;
+            max-width: 1400px;
         }
         .hero {
             background: linear-gradient(135deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02));
             border: 1px solid rgba(255,255,255,0.10);
             border-radius: 22px;
-            padding: 24px;
+            padding: 28px;
             box-shadow: 0 14px 40px rgba(0, 0, 0, 0.35);
+        }
+        .hero h1,
+        .hero h2,
+        .hero h3 {
+            line-height: 1.2;
         }
         .metric-card {
             background: #161618;
             border: 1px solid rgba(255,255,255,0.08);
             border-radius: 18px;
-            padding: 18px;
-            min-height: 110px;
+            padding: 20px;
+            min-height: 124px;
         }
         .movie-card {
             background: #151518;
             border: 1px solid rgba(255,255,255,0.10);
             border-radius: 18px;
-            padding: 16px;
+            padding: 20px;
             height: 100%;
         }
         .movie-title {
-            font-size: 1.05rem;
+            font-size: 1.25rem;
             font-weight: 700;
             color: #ffffff;
-            margin-bottom: 0.35rem;
+            margin-bottom: 0.45rem;
         }
         .movie-meta {
             color: #bbbbbb;
-            font-size: 0.9rem;
+            font-size: 1rem;
+            line-height: 1.55;
         }
         .movie-score {
             color: #d9d9d9;
             font-weight: 700;
-            margin-top: 0.4rem;
+            margin-top: 0.6rem;
+            font-size: 1rem;
         }
         .section-title {
-            font-size: 1.4rem;
+            font-size: 1.7rem;
             font-weight: 800;
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.7rem;
+            letter-spacing: 0.01em;
+        }
+        .stMarkdown, .stText, .stCaption, .stInfo, .stWarning, .stSuccess, .stError {
+            font-size: 1rem;
+        }
+        [data-testid="stSidebar"] {
+            font-size: 1rem;
+        }
+        [data-testid="stSidebar"] h1,
+        [data-testid="stSidebar"] h2,
+        [data-testid="stSidebar"] h3,
+        [data-testid="stSidebar"] p,
+        [data-testid="stSidebar"] label {
+            font-size: 1rem !important;
+            line-height: 1.5;
         }
         .stButton>button {
             background: linear-gradient(135deg, #d1d1d1, #6e6e6e);
@@ -88,10 +112,21 @@ def inject_styles() -> None:
             border: 0;
             border-radius: 12px;
             font-weight: 700;
+            font-size: 1rem;
+            padding: 0.75rem 1.1rem;
         }
         .stButton>button:hover {
             opacity: 0.92;
             border: 0;
+        }
+        .stSelectbox label,
+        .stRadio label,
+        .stTextInput label {
+            font-size: 1rem !important;
+            font-weight: 600 !important;
+        }
+        div[data-baseweb="select"] {
+            font-size: 1rem;
         }
         </style>
         """,
@@ -129,9 +164,9 @@ def render_metric(label: str, value: object, help_text: str = "") -> None:
     st.markdown(
         f"""
         <div class="metric-card">
-            <div style="color:#bbbbbb;font-size:0.9rem;">{label}</div>
-            <div style="color:#ffffff;font-size:2rem;font-weight:800;line-height:1.1;">{value}</div>
-            <div style="color:#8c8c8c;font-size:0.85rem;">{help_text}</div>
+            <div style="color:#bbbbbb;font-size:1rem;">{label}</div>
+            <div style="color:#ffffff;font-size:2.25rem;font-weight:800;line-height:1.1;margin-top:0.15rem;">{value}</div>
+            <div style="color:#8c8c8c;font-size:0.92rem;margin-top:0.2rem;">{help_text}</div>
         </div>
         """,
         unsafe_allow_html=True,
@@ -150,8 +185,8 @@ def render_recommendation_card(movie: dict[str, object], poster_url: str | None 
             else:
                 st.markdown(
                     """
-                    <div style="height:260px;border-radius:14px;background:linear-gradient(135deg,#252527,#141416);border:1px solid rgba(255,255,255,0.08);
-                    display:flex;align-items:center;justify-content:center;color:#cfcfcf;font-size:2rem;font-weight:800;">
+                    <div style="height:280px;border-radius:14px;background:linear-gradient(135deg,#252527,#141416);border:1px solid rgba(255,255,255,0.08);
+                    display:flex;align-items:center;justify-content:center;color:#cfcfcf;font-size:2.25rem;font-weight:800;">
                     🎬
                     </div>
                     """,
@@ -183,9 +218,9 @@ def render_home(dataframe: pd.DataFrame) -> None:
     st.markdown(
         """
         <div class="hero">
-            <div style="color:#bfbfbf;font-size:0.9rem;letter-spacing:0.14em;text-transform:uppercase;">Movie Recommendation System</div>
-            <h1 style="margin:0.35rem 0 0.6rem 0;color:#ffffff;font-size:2.4rem;">Professional content-based recommendations</h1>
-            <p style="margin:0;color:#d7d7d7;max-width:900px;line-height:1.7;">
+            <div style="color:#bfbfbf;font-size:1rem;letter-spacing:0.14em;text-transform:uppercase;">Movie Recommendation System</div>
+            <h1 style="margin:0.45rem 0 0.75rem 0;color:#ffffff;font-size:3rem;">Professional content-based recommendations</h1>
+            <p style="margin:0;color:#d7d7d7;max-width:980px;line-height:1.75;font-size:1.08rem;">
                 Search a movie title, get intelligent fuzzy matching, and explore top recommendations with a metallic dark UI designed for internship and portfolio presentation.
             </p>
         </div>
