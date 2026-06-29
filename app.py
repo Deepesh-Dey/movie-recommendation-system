@@ -146,7 +146,7 @@ def render_recommendation_card(movie: dict[str, object], poster_url: str | None 
         columns = st.columns([1, 1.75])
         with columns[0]:
             if poster_url:
-                st.image(poster_url, use_column_width=True)
+                st.image(poster_url, width="stretch")
             else:
                 st.markdown(
                     """
@@ -217,7 +217,7 @@ def render_recommender_tab(dataframe: pd.DataFrame, recommender: MovieRecommende
     else:
         movie_title = st.text_input("Enter movie title", placeholder="Example: Interstelar")
 
-    if st.button("Recommend movies", use_container_width=True):
+    if st.button("Recommend movies", width="stretch"):
         with st.spinner("Generating recommendations..."):
             result = recommender.recommend(movie_title, top_n=CONFIG.max_recommendations)
 
@@ -264,9 +264,9 @@ def render_dashboard_tab(dataframe: pd.DataFrame) -> None:
         render_metric("Average Rating", metrics["average_rating"], "Numeric vote average")
 
     if "genre_bar" in figs:
-        st.plotly_chart(figs["genre_bar"], use_container_width=True)
+        st.plotly_chart(figs["genre_bar"], width="stretch")
     if "rating_hist" in figs:
-        st.plotly_chart(figs["rating_hist"], use_container_width=True)
+        st.plotly_chart(figs["rating_hist"], width="stretch")
 
 
 def render_about() -> None:
