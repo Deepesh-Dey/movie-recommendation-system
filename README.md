@@ -37,6 +37,8 @@ A professional content-based movie recommendation engine built with Python. Uses
 - 100,000+ user ratings
 - Features: Title, Genre, Cast, Overview, Rating
 
+If the MovieLens files are not downloaded yet, the app still runs using a built-in demo dataset so you can test the full UI immediately.
+
 ---
 
 ## 🚀 Getting Started
